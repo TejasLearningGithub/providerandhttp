@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "332008273775",
+    "project_id": "mydecchatapp",
+    "storage_bucket": "mydecchatapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332008273775:android:da8d1167391471b70a9a9a",
+        "android_client_info": {
+          "package_name": "com.example.my_firebase_auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "332008273775-fui60cqekt4hhv9k78l4fb92m96a51kk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtrgdANxsPhxAWVWrOgmHfNzcaVW1WMQU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "332008273775-fui60cqekt4hhv9k78l4fb92m96a51kk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
