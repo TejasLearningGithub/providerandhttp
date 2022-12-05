@@ -1,9 +1,16 @@
+import 'dart:developer';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:my_firebase_auth/screen/List_Users.dart';
 import 'package:my_firebase_auth/screen/authentication_helper.dart';
 import 'package:my_firebase_auth/screen/home.dart';
 import 'package:my_firebase_auth/screen/login_screen.dart';
+
+CollectionReference collectionReference =
+    FirebaseFirestore.instance.collection('users');
 
 class Signup extends StatelessWidget {
   @override
@@ -230,6 +237,13 @@ class _SignupFormState extends State<SignupForm> {
                       .signUp(email: email!, password: password!)
                       .then((result) {
                     if (result == null) {
+                      Map<String, dynamic> fireStoreData = {
+                        'userName': name,
+                        'email': email,
+                        'password': password,
+                      };
+                      collectionReference.add(fireStoreData);
+                      log('Data Inserted Successfully');
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) => Home()));
                     } else {
@@ -249,6 +263,19 @@ class _SignupFormState extends State<SignupForm> {
               child: Text('Sign Up'),
             ),
           ),
+          SizedBox(
+            height: 80,
+          ),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ListOfUsers(),
+                  ),
+                );
+              },
+              child: Text('List Of Users'))
         ],
       ),
     );
